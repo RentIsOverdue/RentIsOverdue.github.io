@@ -119,8 +119,7 @@
 							let pieceURLElement = pieceArray[j].getElementsByTagName("url")[0];
 							let pieceURLData = pieceURLElement.childNodes[0];
 							console.log(pieceURLData);
-							//galleryImage.src=pieceArray[j].getElementsByTagName("url")[0].nodeValue;
-						}
+							galleryImage.src = pieceURLData;
 						
 					}
 					modal.style.left = "0";
