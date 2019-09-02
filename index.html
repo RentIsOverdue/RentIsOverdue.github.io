@@ -39,10 +39,10 @@
 			<div class="gallery" id="gallery-illustration">
 				<div class="gallery-title">Illustration!</div>
 				<div class="gallery-content">
-					<div id="test-btn" class="gallery-item"><img class="thumb" src="images/illustration/newport_nightcap_thumb.jpg"></div>
-					<div class="gallery-item"><img class="thumb" src="images/illustration/sharks_thumb.jpg"></div>
-					<div class="gallery-item"><img class="thumb" src="images/illustration/karaoke1_thumb.jpg"></div>
-					<div class="gallery-item"><img class="thumb" src="images/illustration/doce_monos_thumb.jpg"></div>
+					<div class="gallery-item"><img id="newport-nightcap" class="thumb" src="images/illustration/newport_nightcap_thumb.jpg"></div>
+					<div class="gallery-item"><img id="sharks" class="thumb" src="images/illustration/sharks_thumb.jpg"></div>
+					<div class="gallery-item"><img id="karaoke1" class="thumb" src="images/illustration/karaoke1_thumb.jpg"></div>
+					<div class="gallery-item"><img id="doce-monos" class="thumb" src="images/illustration/doce_monos_thumb.jpg"></div>
 				</div>
 			</div>
 			<div class="gallery" id="gallery-design">
@@ -88,33 +88,30 @@
 			var modalBg = document.getElementById("modal-bg");
 			var galleryThumbs = document.getElementsByClassName("gallery-item");
 			var closeModalBtn = document.getElementById("close-btn");
-			var openModalBtn = document.getElementById("test-btn");
+			
 			var backBtn = document.getElementById("back-btn");
 			var body = document.getElementsByTagName("body")[0];
 			var imageSection = document.getElementById("image-section");
 			var galleryImage = document.getElementById("gallery-image");
 			var textSection = document.getElementById("text-section");
 			
-			//other functions
-			function loadXMLDoc() {
-				var xmlhttp = new XMLHttpRequest();
-				console.log("asdasd");
-				xmlhttp.onreadystatechange = function() {
-					
-					if (this.readyState == 4 && this.status == 200) {
-						displayXMLData(this);	
-					}	
-				};
-				xmlhttp.open("GET", "gallery.xml", true);
-				xmlhttp.send();
-			}
-			function displayXMLData(){
-				
-			}			
+			//load xml
+			var xmlData;
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					xmlData = this.responseXML;
+				}
+			};
+			xhttp.open("GET", "gallery.xml", true);
+			xhttp.send();
+			
+			
 			//click functions
 			for(var i=0; i<galleryThumbs.length; i++){
-				galleryThumbs[i].onclick = function() {
-					loadXMLDoc();
+				galleryThumbs[i].onclick = function(e) {
+					console.log(e.target.id);
+					console.log(xmlData);
 					modal.style.left = "0";
 					modal.style.width = "100vw";
 					body.style.overflowY = "hidden";
