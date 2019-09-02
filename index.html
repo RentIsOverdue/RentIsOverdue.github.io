@@ -118,8 +118,9 @@
 							//console.log("You clicked "+pieceId);
 							let pieceURLElement = pieceArray[j].getElementsByTagName("url")[0];
 							let pieceURLData = pieceURLElement.childNodes[0];
-							console.log(pieceURLData);
-							galleryImage.src = pieceURLData;
+							let pieceURLValue = pieceURLData.nodeValue;
+							console.log(pieceURLValue);
+							galleryImage.src = pieceURLValue;
 						}
 					}
 					modal.style.left = "0";
