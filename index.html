@@ -113,7 +113,11 @@
 					let pieceArray = xmlData.getElementsByTagName("piece");
 					console.log(xmlData.getElementsByTagName("piece"));
 					for(let j=0; j< pieceArray.length; j++){
-						console.log(pieceArray[j]);
+						let pieceId = pieceArray[j].getAttribute("id");
+						if(targetId == pieceId){
+							console.log("You clicked "+pieceId);
+						}
+						
 					}
 					modal.style.left = "0";
 					modal.style.width = "100vw";
