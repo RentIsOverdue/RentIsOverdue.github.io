@@ -228,9 +228,11 @@ body{
 		font-size:64px;
 	}
 	#text-section{
-		width:100vw;
+		width:100%;
 		top:50vh;
 	}	
+	#image-section{
+		padding-right:0;
+	}
 }
 
-}
