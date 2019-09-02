@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gallery>
 	<illustration>
-		<piece>
+		<piece id="newport-nightcap">
 			<title>Newport Nightcap</title>
 			<description>11" x 17" poster painted in Adobe Photoshop.</description>
 			<url>images/illustration/newport_nightcap.jpg</url>
 		</piece>
-		<piece>
+		<piece id="shark">
 			<title>Shark Spiral</title>
 			<description>11" x 17" poster painted in Adobe Photoshop.</description>
 			<url>images/illustration/sharks.jpg</url>
+		</piece>
+		<piece id="karaoke1">
+			<title>All Asia Karaoke</title>
+			<description>8.5" x 11" poster painted in Adobe Photoshop.</description>
+			<url>images/illustration/karoke1.jpg</url>
+		</piece>
+		<piece id="doce-monos">
+			<title>Doce Monos Beer</title>
+			<description>8.5" x 11" poster painted in Adobe Photoshop.</description>
+			<url>images/illustration/doce_monos.jpg</url>
 		</piece>
 	</illustration>
 	<design>
