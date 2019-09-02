@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="main_style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cabin:400i&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Miles Anders: Illustration! Design! Adventure!</title>
+	</head>
+	<body>
+		<div id="gallery-modal">
+			<div id="modal-bg">		
+				<div id="image-section">
+					<img src="images/left_arrow.svg" id="back-btn">
+					<img id="gallery-image" src="images/illustration/newport_nightcap.jpg">
+				</div>
+				<div id="text-section">
+					<div id="close-btn-row">
+						<img src="images/x.svg" id="close-btn">
+					</div>					
+					<div id="modal-title"></div>
+					<div id="modal-description"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="main-content">
+		<div id="section-hero">
+			<div id="hero-text">
+				<div id="main-title">Miles Anders</div>
+				<div id="sections-menu">
+					<a class="main-link" href="#gallery-illustration">Illustration!</a>
+					<a class="main-link" href="#gallery-design">Design!</a>
+					<a class="main-link" href="#gallery-adventure">Adventure!</a>
+				</div>
+			</div>
+		</div>
+		<div id="section-main">
+			<div class="gallery" id="gallery-illustration">
+				<div class="gallery-title">Illustration!</div>
+				<div class="gallery-content">
+					<div id="test-btn" class="gallery-item"><img class="thumb" src="images/illustration/newport_nightcap_thumb.jpg"></div>
+					<div class="gallery-item"><img class="thumb" src="images/illustration/sharks_thumb.jpg"></div>
+					<div class="gallery-item"><img class="thumb" src="images/illustration/karaoke1_thumb.jpg"></div>
+					<div class="gallery-item"><img class="thumb" src="images/illustration/doce_monos_thumb.jpg"></div>
+				</div>
+			</div>
+			<div class="gallery" id="gallery-design">
+				<div class="gallery-title">Design!</div>
+				<div class="gallery-content">
+					
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+					
+					
+				</div>
+			</div>
+			<div class="gallery" id="gallery-adventure">
+				<div class="gallery-title">Adventure!</div>
+				<div class="gallery-content">
+				
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+						<div class="gallery-item"></div>
+					
+				</div>
+			</div>
+		</div>
+		</div>
+		<script>
+		
+			//cache DOM
+			var modal = document.getElementById("gallery-modal");
+			var modalBg = document.getElementById("modal-bg");
+			var galleryThumbs = document.getElementsByClassName("gallery-item");
+			var closeModalBtn = document.getElementById("close-btn");
+			var openModalBtn = document.getElementById("test-btn");
+			var backBtn = document.getElementById("back-btn");
+			var body = document.getElementsByTagName("body")[0];
+			var imageSection = document.getElementById("image-section");
+			var galleryImage = document.getElementById("gallery-image");
+			var textSection = document.getElementById("text-section");
+			
+			//other functions
+			function loadXMLDoc() {
+				var xmlhttp = new XMLHttpRequest();
+				console.log("asdasd");
+				xmlhttp.onreadystatechange = function() {
+					
+					if (this.readyState == 4 && this.status == 200) {
+						displayXMLData(this);	
+					}	
+				};
+				xmlhttp.open("GET", "gallery.xml", true);
+				xmlhttp.send();
+			}
+			function displayXMLData(){
+				
+			}			
+			//click functions
+			for(var i=0; i<galleryThumbs.length; i++){
+				galleryThumbs[i].onclick = function() {
+					loadXMLDoc();
+					modal.style.left = "0";
+					modal.style.width = "100vw";
+					body.style.overflowY = "hidden";
+				}
+			}
+			
+			closeModalBtn.onclick = function() {	
+				modal.style.left = "100vw";
+				modal.style.width = "200vw";
+				body.style.overflowY = "auto";	
+			}
+			galleryImage.onclick = function(){
+				
+				modalBg.style.backgroundColor = "#222";
+				textSection.style.right = "-500px";
+				imageSection.style.paddingRight = "0";
+				galleryImage.style.transform = "rotate(0deg)";
+				backBtn.style.right = "20px";
+			}
+			backBtn.onclick = function(){
+				imageSection.style.paddingRight = "400px";
+				galleryImage.style.transform = "rotate(-2deg)";
+				modalBg.style.backgroundColor = "rgba(0,0,0,0)";
+				backBtn.style.right = "-100px";
+				textSection.style.right = "0";
+			}
+
+		</script>
+	</body>
+</html>

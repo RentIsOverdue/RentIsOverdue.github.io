@@ -1,0 +1,213 @@
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	margin:0;
+	height:100vh;
+	overflow-x:hidden;
+	scroll-behavior: smooth;
+}
+
+#gallery-modal{
+	width:200vw;
+	height:100vh;
+	display:block;
+	position: fixed;
+	left:100vw;
+	z-index: 100;
+	overflow: hidden;
+	transition: width 1s, left .5s;
+	
+	background-image:url("images/hero_2tone.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size:cover;
+	
+}
+
+#modal-bg{
+	transition: background-color 1s;
+	background-color:rgba(0,0,0,0);
+}
+
+#image-section{
+	display:block;
+	height:100vh;
+	overflow-y:scroll;
+	position:relative;
+	z-index:140;
+	padding-right:400px;
+	transition: padding-right 1s;
+	overflow-x:hidden;
+}
+
+#gallery-image{
+	margin: 0 auto;
+	display:block;
+	position:relative;
+	margin-top:100px;
+	margin-bottom:100px;
+	max-height:150%;
+	max-width:90%;
+	z-index:50;
+	box-shadow: -20px 20px #222;
+	transform: rotate(-2deg);
+	cursor: pointer;
+	transition: transform 1s, box-shadow .5s;
+}
+#gallery-image:hover{
+	box-shadow: -10px 10px #B361A1;
+}
+#text-section{
+	padding-top:20px;
+	padding-left:30px;
+	padding-right:20px;
+	background-color:#B361A1;
+	display:block;
+	position:absolute;
+	width:400px;
+	z-index:150;
+	height:100%;
+	right:0;
+	transition: right 1s;
+	top:0;
+}
+
+#close-btn-row{
+	display:block;
+	padding-bottom:30px;
+
+}
+#close-btn{
+	width:50px;
+	height:50px;
+	display:block;
+	margin-right:0;
+	margin-left:auto;
+	cursor: pointer;
+}
+#back-btn{
+	width:50px;
+	height:50px;
+	cursor: pointer;
+	position:absolute;
+	right:-100px;
+	top:20px;
+	display:block;
+	transition: right 1s;
+}
+#modal-title{
+	transform: rotate(2deg);
+	color:#222;
+	font-family: 'Bangers', cursive;
+	font-size:86px;
+	padding-bottom:40px;
+}
+#modal-description{
+	color:#222;
+	font-family: 'Cabin', sans-serif;
+	font-size:24px;
+	transform: rotate(-2deg);
+}
+#main-content{
+	width:100vw;
+	overflow-x:hidden;
+}
+#section-hero{
+	background-image:url("images/hero.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size:cover;
+	height:100vh;
+	display:flex;
+	justify-content: center;
+	align-items: center;	
+}
+#hero-text{
+	text-align: center;
+}
+
+#main-title{
+	color:#E7F2ED;
+	font-size:120px;
+	font-family: 'Bangers', cursive;
+}
+#main-title::selection{
+	color:white;
+	background-color:#B361A1;
+}
+#sections-menu::selection{
+	color:white;
+	background-color:#B361A1;
+}
+
+.main-link{
+	color:#E7F2ED;
+	font-size:48px;
+	font-family: 'Bangers', cursive;
+	text-decoration:none;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.main-link::selection{
+	color:white;
+	background-color:#B361A1;
+}
+.main-link:hover{
+	color:white;
+
+}
+.main-link:focus{
+	color:white;
+	outline: 0;
+}
+.main-link:active{
+	color:#B361A1;
+}
+
+#section-main{
+	background-color:#243254;
+	background-image:url("images/radial.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size:cover;
+}
+
+.gallery{
+	margin-left: 100px;
+	margin-right: 100px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.gallery-title{
+	color:#E7F2ED;
+	font-size:96px;
+	font-family: 'Bangers', cursive;
+	padding-bottom:10px;
+}
+
+.gallery-title::selection{
+	color:white;
+	background-color:#B361A1;
+}
+
+.gallery-content{
+	width:100%;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	grid-auto-rows: 1fr;
+}
+
+.thumb{
+	display:block;
+	width:100%;
+	cursor: pointer;
+}
