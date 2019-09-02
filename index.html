@@ -115,9 +115,11 @@
 					for(let j=0; j< pieceArray.length; j++){
 						let pieceId = pieceArray[j].getAttribute("id");
 						if(targetId == pieceId){
-							console.log("You clicked "+pieceId);
-							console.log(pieceArray[j].getElementsByTagName("url")[0].nodeValue);
-							galleryImage.src=pieceArray[j].getElementsByTagName("url")[0].nodeValue;
+							//console.log("You clicked "+pieceId);
+							let pieceURLElement = pieceArray[j].getElementsByTagName("url")[0];
+							let pieceURLData = pieceURLElement.childNodes[0];
+							console.log(pieceURLData);
+							//galleryImage.src=pieceArray[j].getElementsByTagName("url")[0].nodeValue;
 						}
 						
 					}
@@ -133,7 +135,6 @@
 				body.style.overflowY = "auto";	
 			}
 			galleryImage.onclick = function(){
-				
 				modalBg.style.backgroundColor = "#222";
 				textSection.style.right = "-500px";
 				imageSection.style.paddingRight = "0";
