@@ -116,8 +116,8 @@
 						let pieceId = pieceArray[j].getAttribute("id");
 						if(targetId == pieceId){
 							console.log("You clicked "+pieceId);
-							console.log(pieceArray[j].getElementsByTagName("url")[0]);
-							galleryImage.src=pieceArray[j].getElementsByTagName("url")[0];
+							console.log(pieceArray[j].getElementsByTagName("url")[0].nodeValue);
+							galleryImage.src=pieceArray[j].getElementsByTagName("url")[0]nodeValue;
 						}
 						
 					}
