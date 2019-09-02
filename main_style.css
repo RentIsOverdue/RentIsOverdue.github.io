@@ -18,7 +18,6 @@ body{
 	z-index: 100;
 	overflow: hidden;
 	transition: width 1s, left .5s;
-	
 	background-image:url("images/hero_2tone.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -227,7 +226,10 @@ body{
 	}
 	.gallery-title{
 		font-size:64px;
-		
+	#text-section{
+		width:100vw;
+		top:50vh;
+	}	
 }
 
 }
