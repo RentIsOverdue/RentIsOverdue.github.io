@@ -12,7 +12,7 @@
 			<div id="modal-bg">		
 				<div id="image-section">
 					<img src="images/left_arrow.svg" id="back-btn">
-					<img id="gallery-image" src="images/illustration/newport_nightcap.jpg">
+					<img id="gallery-image" src="">
 				</div>
 				<div id="text-section">
 					<div id="close-btn-row">
@@ -109,13 +109,15 @@
 			for(let i=0; i<galleryThumbs.length; i++){
 				galleryThumbs[i].onclick = function(e) {
 					let targetId = e.target.id;
-					console.log(e.target.id);
+					//console.log(e.target.id);
 					let pieceArray = xmlData.getElementsByTagName("piece");
-					console.log(xmlData.getElementsByTagName("piece"));
+					//console.log(xmlData.getElementsByTagName("piece"));
 					for(let j=0; j< pieceArray.length; j++){
 						let pieceId = pieceArray[j].getAttribute("id");
 						if(targetId == pieceId){
 							console.log("You clicked "+pieceId);
+							console.log(pieceArray[j].getElementsByTagName("url")[0]);
+							galleryImage.src=pieceArray[j].getElementsByTagName("url")[0];
 						}
 						
 					}
