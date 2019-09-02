@@ -230,6 +230,8 @@ body{
 	#text-section{
 		width:100%;
 		top:50vh;
+		left:0;
+		right:auto;
 	}	
 	#image-section{
 		padding-right:0;
