@@ -48,34 +48,12 @@
 			<div class="gallery" id="gallery-design">
 				<div class="gallery-title">Design!</div>
 				<div class="gallery-content">
-					
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-					
-					
+				
 				</div>
 			</div>
 			<div class="gallery" id="gallery-adventure">
 				<div class="gallery-title">Adventure!</div>
 				<div class="gallery-content">
-				
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
-						<div class="gallery-item"></div>
 					
 				</div>
 			</div>
@@ -93,6 +71,8 @@
 			var imageSection = document.getElementById("image-section");
 			var galleryImage = document.getElementById("gallery-image");
 			var textSection = document.getElementById("text-section");
+			var modalTitle = document.getElementById("modal-title");
+			var modalDescription = document.getElementById("modal-description");
 			
 			//load xml
 			var xmlData;
@@ -106,6 +86,8 @@
 			xhttp.send();
 			
 			//click functions
+			
+			//add click function to thumbs
 			for(let i=0; i<galleryThumbs.length; i++){
 				galleryThumbs[i].onclick = function(e) {
 					let targetId = e.target.id;
@@ -119,8 +101,18 @@
 							let pieceURLElement = pieceArray[j].getElementsByTagName("url")[0];
 							let pieceURLData = pieceURLElement.childNodes[0];
 							let pieceURLValue = pieceURLData.nodeValue;
-							console.log(pieceURLValue);
+							//console.log(pieceURLValue);
+							let pieceTitleElement = pieceArray[j].getElementsByTagName("title")[0];
+							let pieceTitleData = pieceTitleElement.childNodes[0];
+							let pieceTitleValue = pieceTitleData.nodeValue;
+							//
+							let pieceDescriptionElement = pieceArray[j].getElementsByTagName("description")[0];
+							let pieceDescriptionData = pieceDescriptionElement.childNodes[0];
+							let pieceDescriptionValue = pieceDescriptionData.nodeValue;
+							//
 							galleryImage.src = pieceURLValue;
+							modalTitle.innerHTML = pieceTitleValue;
+							modalDescription.innerHTML = pieceDescriptionValue;
 						}
 					}
 					modal.style.left = "0";
