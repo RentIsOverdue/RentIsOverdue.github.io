@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="main_style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cabin:400i&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Miles Anders: Illustration! Design! Adventure!</title>
+	</head>
+	<body class="modal-closed">
+		<div id="gallery-modal" class="modal-closed">
+			<img src="images/x.svg" id="close-btn">
+			<div id="modal-bg" class="default">		
+				<div id="image-section" class="default">		
+					<img src="images/left_arrow.svg" id="back-btn">
+					<img id="gallery-image" class="default" src="images/illustration/doce_monos.jpg">
+					<img src="images/up_arrow.svg" id="up-btn">
+				</div>
+				<div id="text-section" class="default">			
+					<div id="modal-title">Doce Monos Beer</div>
+					<div id="modal-description">8.5" x 11' Poster painted in Photoshop.</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="main-content">
+		<div id="section-hero">
+			<div id="hero-text">
+				<div id="main-title">Miles Anders</div>
+				<div id="sections-menu">
+					<a class="main-link" href="#gallery-illustration">Illustration!</a>
+					<a class="main-link" href="#gallery-design">Design!</a>
+					<a class="main-link" href="#gallery-adventure">Adventure!</a>
+				</div>
+			</div>
+		</div>
+		<div id="section-main">
+			<div class="gallery" id="gallery-illustration">
+				<div class="gallery-title">Illustration!</div>
+				<div class="gallery-content">
+					<div class="gallery-item"><img id="newport-nightcap" class="thumb" src="images/illustration/newport_nightcap_thumb.jpg"></div>
+					<div class="gallery-item"><img id="sharks" class="thumb" src="images/illustration/sharks_thumb.jpg"></div>
+					<div class="gallery-item"><img id="karaoke1" class="thumb" src="images/illustration/karaoke1_thumb.jpg"></div>
+					<div class="gallery-item"><img id="doce-monos" class="thumb" src="images/illustration/doce_monos_thumb.jpg"></div>
+				</div>
+			</div>
+			<div class="gallery" id="gallery-design">
+				<div class="gallery-title">Design!</div>
+				<div class="gallery-content">
+				
+				</div>
+			</div>
+			<div class="gallery" id="gallery-adventure">
+				<div class="gallery-title">Adventure!</div>
+				<div class="gallery-content">
+					
+				</div>
+			</div>
+		</div>
+		</div>
+		<script>
+		
+			//cache DOM
+			var modal = document.getElementById("gallery-modal");
+			var modalBg = document.getElementById("modal-bg");
+			var galleryThumbs = document.getElementsByClassName("gallery-item");
+			var closeModalBtn = document.getElementById("close-btn");
+			var backBtn = document.getElementById("back-btn");
+			var upBtn = document.getElementById("up-btn");
+			var body = document.getElementsByTagName("body")[0];
+			var imageSection = document.getElementById("image-section");
+			var galleryImage = document.getElementById("gallery-image");
+			var textSection = document.getElementById("text-section");
+			var modalTitle = document.getElementById("modal-title");
+			var modalDescription = document.getElementById("modal-description");
+			
+			//other variables
+			var modalOpen = false;
+			var modalFullScreen = false;
+			
+			//functions
+			function swapStyles(element,oldStyle,newStyle){
+				element.classList.remove(oldStyle);
+				element.classList.add(newStyle);
+			}
+			//click functions
+			
+			//add click function to thumbs
+			for(let i=0; i<galleryThumbs.length; i++){
+				galleryThumbs[i].onclick = function(e) {
+					let targetId = e.target.id;
+					imageSection.scrollTop = "0";
+					swapStyles(body,"modal-closed","modal-open");
+					swapStyles(modal,"modal-closed","modal-open");
+				}
+			}
+			
+			closeModalBtn.onclick = function() {	
+				swapStyles(body,"modal-open","modal-closed");
+				swapStyles(modal,"modal-open","modal-closed");
+			}
+			galleryImage.onclick = function(){
+				swapStyles(imageSection,"default","fullscreen");
+				swapStyles(modalBg,"default","fullscreen");
+				swapStyles(textSection,"default","fullscreen");
+				swapStyles(galleryImage,"default","fullscreen");
+				backBtn.style.right = "20px";
+				closeModalBtn.style.display = "none";
+			}
+			backBtn.onclick = function(){
+				swapStyles(imageSection,"fullscreen","default");
+				swapStyles(modalBg,"fullscreen","default");
+				swapStyles(textSection,"fullscreen","default");
+				swapStyles(galleryImage,"fullscreen","default");
+				backBtn.style.right = "-100px";
+				closeModalBtn.style.display = "block";
+			}
+			upBtn.onclick = function(){
+				swapStyles(imageSection,"fullscreen","default");
+				swapStyles(modalBg,"fullscreen","default");
+				swapStyles(textSection,"fullscreen","default");
+				swapStyles(galleryImage,"fullscreen","default");
+				closeModalBtn.style.display = "block";
+			}
+
+		</script>
+	</body>
+</html>

@@ -3,32 +3,62 @@ html{
 }
 
 body{
+	box-sizing: border-box;
 	margin:0;
 	height:100vh;
 	overflow-x:hidden;
 	scroll-behavior: smooth;
 }
-
+body.modal-closed{
+	overflow-y:auto;
+}
+body.modal-open{
+	overflow-y:hidden;
+}
 #gallery-modal{
-	width:200vw;
 	height:100vh;
 	display:block;
 	position: fixed;
-	left:100vw;
 	z-index: 100;
 	overflow: hidden;
-	transition: width 1s, left .5s;
+	transition: width 1s, left .5s, top .5s, height 1s;
 	background-image:url("images/hero_2tone.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	background-size:cover;
-	
+	background-size:cover;	
+}
+#gallery-modal.modal-closed{
+	top:100vh;
+	height:200vh;
+}
+
+#gallery-modal.modal-open{
+	top:0;
+	height:100vh;
+}
+@media only screen and (min-width: 600px) {
+	#gallery-modal.modal-closed{
+		top:0;
+		left:100vw;
+		width:200vw;
+	}
+
+	#gallery-modal.modal-open{
+		top:0;
+		left:0;
+		width:100vw;
+	}
 }
 
 #modal-bg{
 	transition: background-color 1s;
+}
+#modal-bg.default{
 	background-color:rgba(0,0,0,0);
+}
+#modal-bg.fullscreen{
+	background-color:#222;
 }
 
 #image-section{
@@ -37,12 +67,23 @@ body{
 	overflow-y:scroll;
 	position:relative;
 	z-index:140;
-	padding-right:400px;
 	transition: padding-right 1s;
 	overflow-x:hidden;
 }
+#image-section.default{
+	padding-right:0;
+}
+@media only screen and (min-width: 600px) {
+	#image-section.default{
+		padding-right:400px;
+	}
+}
+#image-section.fullscreen{
+	padding-right:0;
+}
 
 #gallery-image{
+	box-sizing: border-box;
 	margin: 0 auto;
 	display:block;
 	position:relative;
@@ -51,29 +92,54 @@ body{
 	max-height:150%;
 	max-width:90%;
 	z-index:50;
-	box-shadow: -20px 20px #222;
-	transform: rotate(-2deg);
+	box-shadow: -20px 20px #222;	
 	cursor: pointer;
 	transition: transform 1s, box-shadow .5s;
 }
 #gallery-image:hover{
 	box-shadow: -10px 10px #B361A1;
 }
+#gallery-image.default{
+	transform: rotate(-2deg);
+}
+#gallery-image.fullscreen{
+	transform: rotate(0deg);
+}
 #text-section{
+	box-sizing: border-box;
 	padding-top:20px;
 	padding-left:30px;
 	padding-right:20px;
 	background-color:#B361A1;
 	display:block;
 	position:absolute;
-	width:400px;
 	z-index:150;
 	height:100vh;
-	right:0;
-	transition: right 1s;
-	top:0;
+	transition: right 1s, top 1s;
+	width:100vw;
+	
 }
 
+#text-section.default{
+	top:50vh;
+}
+
+#text-section.fullscreen{
+	top:100vh;
+}
+@media only screen and (min-width: 600px) {
+	#text-section{
+		width:400px;
+	}
+	#text-section.default{
+		top:0;
+		right:0;
+	}
+	#text-section.fullscreen{
+		top:0;
+		right:-500px;
+	}
+}
 #close-btn{
 	width:50px;
 	height:50px;
@@ -84,15 +150,43 @@ body{
 	top:20px;
 	z-index:160;
 }
+#close-btn.default{
+}
+#close-btn.fullscreen{
+}
 #back-btn{
+	display:none;
+}
+#back-btn.default{
+}
+#back-btn.fullscreen{
+}
+@media only screen and (min-width: 600px) {
+	#back-btn{
+		width:50px;
+		height:50px;
+		cursor: pointer;
+		position:absolute;
+		right:-100px;
+		top:20px;
+		display:block;
+		transition: right 1s;
+	}
+}
+#up-btn{
 	width:50px;
 	height:50px;
 	cursor: pointer;
 	position:absolute;
-	right:-100px;
-	top:20px;
+	right:20px;
+	bottom:20px;
 	display:block;
 	transition: right 1s;
+}
+@media only screen and (min-width: 600px) {
+	#up-btn{
+		display:none;
+	}
 }
 #modal-title{
 	transform: rotate(2deg);
@@ -100,6 +194,7 @@ body{
 	font-family: 'Bangers', cursive;
 	font-size:86px;
 	padding-bottom:40px;
+	padding-top:40px;
 }
 #modal-description{
 	color:#222;
@@ -179,8 +274,8 @@ body{
 }
 
 .gallery{
-	margin-left: 100px;
-	margin-right: 100px;
+	padding-left: 100px;
+	padding-right: 100px;
 	padding-top: 100px;
 	padding-bottom: 100px;
 }
@@ -218,23 +313,19 @@ body{
 		font-size:36px;
 	}
 	.gallery{
-		margin-left: 20px;
-		margin-right: 20px;
+		margin-left:0;
+		margin-right:0;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 	.gallery-title{
 		font-size:64px;
-	}
-	#text-section{
-		width:100%;
-		top:50vh;
-		left:0;
-		right:0;
 	}	
-	#image-section{
-		padding-right:0;
-	}
 	#modal-title{
 		font-size:64px;
+	}
+	#gallery-image{
+		
 	}
 }
 
