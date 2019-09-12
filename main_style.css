@@ -53,6 +53,12 @@ body.modal-open{
 
 #modal-bg{
 	transition: background-color 1s;
+	position: relative;
+	left:0;
+	top:0;
+	width:100vw;
+	height:100vh;
+	overflow-y:scroll;
 }
 #modal-bg.default{
 	background-color:rgba(0,0,0,0);
@@ -64,8 +70,11 @@ body.modal-open{
 #image-section{
 	display:block;
 	height:100vh;
-	overflow-y:scroll;
-	position:relative;
+	overflow-y:hidden;
+	position:absolute;
+	left:0;
+	top:0;
+	width:100vw;
 	z-index:140;
 	transition: padding-right 1s;
 	overflow-x:hidden;
@@ -107,25 +116,22 @@ body.modal-open{
 }
 #text-section{
 	box-sizing: border-box;
-	padding-top:20px;
-	padding-left:30px;
-	padding-right:20px;
-	background-color:#B361A1;
+	pointer-events: none;
+	
 	display:block;
 	position:absolute;
 	z-index:150;
-	height:100vh;
+	
 	transition: right 1s, top 1s;
 	width:100vw;
-	
 }
 
 #text-section.default{
-	top:50vh;
+	top:0;
 }
 
 #text-section.fullscreen{
-	top:100vh;
+	top:0vh;
 }
 @media only screen and (min-width: 600px) {
 	#text-section{
@@ -139,6 +145,18 @@ body.modal-open{
 		top:0;
 		right:-500px;
 	}
+}
+#invisible-part{
+	height:80vh;
+	pointer-events: none;
+}
+
+#regular-part{
+	background-color:#B361A1;
+	padding-top:20px;
+	padding-left:30px;
+	padding-right:20px;
+	padding-bottom:100px;
 }
 #close-btn{
 	width:50px;
@@ -173,7 +191,7 @@ body.modal-open{
 		transition: right 1s;
 	}
 }
-#up-btn{
+#down-btn{
 	width:50px;
 	height:50px;
 	cursor: pointer;
@@ -182,9 +200,11 @@ body.modal-open{
 	bottom:20px;
 	display:block;
 	transition: right 1s;
+	z-index:161;
 }
+
 @media only screen and (min-width: 600px) {
-	#up-btn{
+	#down-btn{
 		display:none;
 	}
 }
@@ -219,9 +239,13 @@ body.modal-open{
 }
 #hero-text{
 	text-align: center;
-	padding:10px;
-}
 
+}
+@media only screen and (min-width: 600px) {
+	#hero-text{
+		padding:10px;
+	}
+}
 #main-title{
 	color:#E7F2ED;
 	font-size:120px;
