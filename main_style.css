@@ -1,5 +1,6 @@
 html{
 	scroll-behavior: smooth;
+	height:100%;
 }
 
 body{
@@ -293,7 +294,7 @@ body.modal-open{
 	background-position: center center;
 	background-attachment: fixed;
 	background-size:cover;
-	height:100%;
+	
 	
 }
 
