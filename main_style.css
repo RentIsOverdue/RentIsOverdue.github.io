@@ -118,7 +118,7 @@ body.modal-open{
 	box-sizing: border-box;
 	padding-left:20px;
 	padding-right:20px;
-	padding-bottom:60px;
+	padding-bottom:200px;
 	display:block;
 	position:relative;
 	z-index:150;
@@ -221,9 +221,14 @@ body.modal-open{
 #modal-title{
 	color:white;
 	font-family: 'Bangers', cursive;
-	font-size:86px;
+	font-size:64px;
 	padding-bottom:20px;
 	padding-top:20px;
+}
+@media only screen and (min-width: 600px) {
+	#modal-title{
+		font-size:86px;
+	}
 }
 #modal-description{
 	color:white;
@@ -261,10 +266,15 @@ body.modal-open{
 }
 #main-title{
 	color:#E7F2ED;
-	font-size:120px;
+	font-size:86px;
 	font-family: 'Bangers', cursive;
 	padding-left:10px;
 	padding-right:10px;
+}
+@media only screen and (min-width: 600px) {
+#main-title{
+		font-size:120px;
+	}
 }
 #main-title::selection{
 	color:white;
@@ -277,7 +287,7 @@ body.modal-open{
 
 .main-link{
 	color:#E7F2ED;
-	font-size:48px;
+	font-size:36px;
 	font-family: 'Bangers', cursive;
 	text-decoration:none;
 	padding-left:10px;
@@ -300,9 +310,13 @@ body.modal-open{
 .main-link:active{
 	color:#B361A1;
 }
-
+@media only screen and (min-width: 600px) {
+	.main-link{
+		font-size:48px;	
+	}
+}
 #section-main{	
-	background-color:#222;	
+	background-color:#463a44;	
 }
 @media only screen and (min-width: 600px) {
 	#section-main{
@@ -314,15 +328,22 @@ body.modal-open{
 	}
 }
 .gallery{
-	padding-left: 100px;
-	padding-right: 100px;
+	padding-left: 20px;
+	padding-right: 20px;
 	padding-top: 100px;
 	padding-bottom: 100px;
+	margin-left:0;
+	margin-right:0;
 }
-
+@media only screen and (min-width: 600px) {
+	.gallery{
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+}
 .gallery-title{
 	color:#EEE;
-	font-size:96px;
+	font-size:64px;
 	font-family: 'Bangers', cursive;
 	padding-bottom:10px;
 }
@@ -330,10 +351,12 @@ body.modal-open{
 .gallery-title::selection{
 	color:white;
 	background-color:#B361A1;
+	
 }
 @media only screen and (min-width: 600px) {
 	.gallery-title{
 		color:#E7F2ED;
+		font-size:96px;
 	}
 }
 .gallery-content{
@@ -348,28 +371,5 @@ body.modal-open{
 	display:block;
 	width:100%;
 	cursor: pointer;
-}
-@media only screen and (max-width: 600px) {
-	#main-title{
-		font-size:86px;
-	}
-	.main-link{
-		font-size:36px;
-	}
-	.gallery{
-		margin-left:0;
-		margin-right:0;
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-	.gallery-title{
-		font-size:64px;
-	}	
-	#modal-title{
-		font-size:64px;
-	}
-	#gallery-image{
-		
-	}
 }
 
