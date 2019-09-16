@@ -16,26 +16,27 @@ body.modal-open{
 	overflow-y:hidden;
 }
 #gallery-modal{
+	scroll-behavior: smooth;
 	height:100vh;
+	overflow-y:scroll;
 	display:block;
 	position: fixed;
 	z-index: 100;
-	overflow: hidden;
 	transition: width 1s, left .5s, top .5s, height 1s;
 	background-image:url("images/hero_2tone.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-attachment: fixed;
+	background-attachment:fixed;
 	background-size:cover;	
 }
 #gallery-modal.modal-closed{
-	top:100vh;
-	height:200vh;
+	top:120vh;
+	
 }
 
 #gallery-modal.modal-open{
 	top:0;
-	height:100vh;
+	
 }
 @media only screen and (min-width: 600px) {
 	#gallery-modal.modal-closed{
@@ -52,32 +53,28 @@ body.modal-open{
 }
 
 #modal-bg{
-	transition: background-color 1s;
+	
 	position: relative;
 	left:0;
 	top:0;
 	width:100vw;
-	height:100vh;
-	overflow-y:scroll;
+	
+	
 }
 #modal-bg.default{
-	background-color:rgba(0,0,0,0);
+	
 }
 #modal-bg.fullscreen{
-	background-color:#222;
+	
 }
 
 #image-section{
 	display:block;
-	height:100vh;
-	overflow-y:hidden;
-	position:absolute;
-	left:0;
-	top:0;
-	width:100vw;
+	height:100%;
+	width:100%;
 	z-index:140;
 	transition: padding-right 1s;
-	overflow-x:hidden;
+	
 }
 #image-section.default{
 	padding-right:0;
@@ -93,32 +90,33 @@ body.modal-open{
 
 #gallery-image{
 	box-sizing: border-box;
-	margin: 0 auto;
+		
 	display:block;
 	position:relative;
-	margin-top:100px;
-	margin-bottom:100px;
-	max-height:150%;
-	max-width:90%;
+	margin-top:90px;
+	padding:10px;
+	max-height:100%;
+	max-width:100%;
 	z-index:50;
-	box-shadow: -20px 20px #222;	
 	cursor: pointer;
-	transition: transform 1s, box-shadow .5s;
+	
 }
 #gallery-image:hover{
-	box-shadow: -10px 10px #B361A1;
+	
 }
 #gallery-image.default{
-	transform: rotate(-2deg);
+	
 }
 #gallery-image.fullscreen{
-	transform: rotate(0deg);
+
 }
 #text-section{
 	box-sizing: border-box;
-	pointer-events: none;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:60px;
 	display:block;
-	position:absolute;
+	position:relative;
 	z-index:150;
 	transition: right 1s, top 1s;
 	width:100vw;
@@ -126,19 +124,18 @@ body.modal-open{
 }
 
 #text-section.default{
-	top:100vh;
+	
 }
 
 #text-section.fullscreen{
-	top:100vh;
+	
 }
 @media only screen and (min-width: 600px) {
 	#text-section{
 		width:400px;
 	}
 	#text-section.default{
-		top:0;
-		right:0;
+		
 	}
 	#text-section.fullscreen{
 		top:0;
@@ -151,7 +148,7 @@ body.modal-open{
 	display:block;
 	cursor: pointer;
 	position:absolute;
-	right:20px;
+	right:10px;
 	top:20px;
 	z-index:160;
 }
@@ -165,9 +162,9 @@ body.modal-open{
 	display:block;
 	cursor: pointer;
 	position:absolute;
-	right:20px;
-	bottom:20px;
-	z-index:160;
+	right:60px;
+	top:20px;
+	z-index:161;
 }
 #back-btn{
 	display:none;
@@ -206,18 +203,17 @@ body.modal-open{
 	}
 }
 #modal-title{
-	transform: rotate(2deg);
 	color:#222;
 	font-family: 'Bangers', cursive;
 	font-size:86px;
-	padding-bottom:40px;
-	padding-top:40px;
+	padding-bottom:20px;
+	padding-top:20px;
 }
 #modal-description{
 	color:#222;
 	font-family: 'Cabin', sans-serif;
 	font-size:24px;
-	transform: rotate(-2deg);
+	
 }
 #main-content{
 	width:100vw;

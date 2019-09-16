@@ -10,17 +10,18 @@
 	<body class="modal-closed">
 		<div id="gallery-modal" class="modal-closed">
 			<img src="images/x.svg" id="close-btn">
-			<img src="images/i.svg" id="info-btn">
+			<a href="#text-section"><img src="images/i.svg" id="info-btn"></a>
 			<div id="modal-bg" class="default">		
-				<div id="text-section" class="default">	
-						<div id="modal-title">Doce Monos Beer</div>
-						<div id="modal-description">8.5" x 11' Poster painted in Photoshop.</div>
-						<img src="images/down_arrow.svg" id="down-btn">
-				</div>
-				<div id="image-section" class="default">		
+			<div id="image-section" class="default">		
 					<img src="images/left_arrow.svg" id="back-btn">
 					<img id="gallery-image" class="default" src="images/illustration/doce_monos.jpg">
-				</div>
+			</div>
+			<div id="text-section" class="default">	
+						<div id="modal-title">Doce Monos Beer</div>
+						<div id="modal-description">8.5" x 11' Poster painted in Photoshop.</div>
+						
+			</div>
+				
 			</div>
 			
 		</div>
@@ -69,6 +70,7 @@
 			var closeModalBtn = document.getElementById("close-btn");
 			var backBtn = document.getElementById("back-btn");
 			var downBtn = document.getElementById("down-btn");
+			var infoBtn = document.getElementById("info-btn");
 			var body = document.getElementsByTagName("body")[0];
 			var imageSection = document.getElementById("image-section");
 			var galleryImage = document.getElementById("gallery-image");
@@ -87,7 +89,7 @@
 			}
 			//click functions
 			
-			//add click function to thumbs
+			//add click function to thumbs to open modal
 			for(let i=0; i<galleryThumbs.length; i++){
 				galleryThumbs[i].onclick = function(e) {
 					let targetId = e.target.id;
@@ -98,35 +100,39 @@
 				}
 			}
 			
+			//close modal
 			closeModalBtn.onclick = function() {	
 				swapStyles(body,"modal-open","modal-closed");
 				swapStyles(modal,"modal-open","modal-closed");
 			}
+			
+			//make modal image fullscreen
 			galleryImage.onclick = function(){
-				
 				swapStyles(imageSection,"default","fullscreen");
 				swapStyles(modalBg,"default","fullscreen");
 				swapStyles(textSection,"default","fullscreen");
 				swapStyles(galleryImage,"default","fullscreen");
 				backBtn.style.right = "20px";
-				closeModalBtn.style.display = "none";
-			}
-			backBtn.onclick = function(){
 				
+			}
+			
+			//bring back info in modal
+			backBtn.onclick = function(){
 				swapStyles(imageSection,"fullscreen","default");
 				swapStyles(modalBg,"fullscreen","default");
 				swapStyles(textSection,"fullscreen","default");
 				swapStyles(galleryImage,"fullscreen","default");
 				backBtn.style.right = "-100px";
-				closeModalBtn.style.display = "block";
-			}
-			downBtn.onclick = function(){
 				
+			}
+			
+			//make modal image fullscreen
+			downBtn.onclick = function(){
 				swapStyles(imageSection,"fullscreen","default");
 				swapStyles(modalBg,"fullscreen","default");
 				swapStyles(textSection,"fullscreen","default");
 				swapStyles(galleryImage,"fullscreen","default");
-				closeModalBtn.style.display = "block";
+				
 			}
 
 		</script>
