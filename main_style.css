@@ -31,7 +31,6 @@ body.modal-open{
 }
 #gallery-modal.modal-closed{
 	top:120vh;
-	
 }
 
 #gallery-modal.modal-open{
@@ -49,17 +48,15 @@ body.modal-open{
 		top:0;
 		left:0;
 		width:100vw;
+		overflow-y:hidden;
 	}
 }
 
 #modal-bg{
-	
 	position: relative;
 	left:0;
 	top:0;
-	width:100vw;
-	
-	
+	width:100vw;	
 }
 #modal-bg.default{
 	
@@ -74,7 +71,6 @@ body.modal-open{
 	width:100%;
 	z-index:140;
 	transition: padding-right 1s;
-	
 }
 #image-section.default{
 	padding-right:0;
@@ -90,16 +86,14 @@ body.modal-open{
 
 #gallery-image{
 	box-sizing: border-box;
-		
 	display:block;
 	position:relative;
 	margin-top:90px;
-	padding:10px;
+	padding:20px;
 	max-height:100%;
 	max-width:100%;
 	z-index:50;
 	cursor: pointer;
-	
 }
 #gallery-image:hover{
 	
@@ -133,11 +127,17 @@ body.modal-open{
 @media only screen and (min-width: 600px) {
 	#text-section{
 		width:400px;
+		position:absolute;
+		top:0;
+		right:0;
+		padding-top:60px;
+		height:100%;
 	}
 	#text-section.default{
 		
 	}
 	#text-section.fullscreen{
+		
 		top:0;
 		right:-500px;
 	}
@@ -165,6 +165,11 @@ body.modal-open{
 	right:60px;
 	top:20px;
 	z-index:161;
+}
+@media only screen and (min-width: 600px) {
+	#info-btn{
+		display:none;
+	}
 }
 #back-btn{
 	display:none;
@@ -288,6 +293,8 @@ body.modal-open{
 	background-position: center center;
 	background-attachment: fixed;
 	background-size:cover;
+	height:100%;
+	
 }
 
 .gallery{
