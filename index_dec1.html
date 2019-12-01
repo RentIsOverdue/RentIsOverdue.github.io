@@ -14,11 +14,11 @@
 				<a href="#text-section"><img src="images/i.svg" id="info-btn"></a>
 			</div>
 			<div id="image-section">			
-				<img id="gallery-image" src="images/illustration/sunset.jpg">
+				<img id="gallery-image" src="">
 			</div>
 			<div id="text-section">	
-				<div id="modal-title">Doce Monos Beer</div>
-				<div id="modal-description">8.5" x 11' Poster painted in Photoshop. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div id="modal-title"></div>
+				<div id="modal-description"></div>
 			</div>	
 		</div>
 		
@@ -71,13 +71,50 @@
 			var textSection = document.getElementById("text-section");
 			var modalTitle = document.getElementById("modal-title");
 			var modalDescription = document.getElementById("modal-description");			
+			
+			//load xml
+			var xmlData;
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					xmlData = this.responseXML;
+				}
+			};
+			xhttp.open("GET", "gallery.xml", true);
+			xhttp.send();
+			
 
+			
 			//click functions
 			
 			//add click function to thumbs to open modal
 			for(let i=0; i<galleryThumbs.length; i++){
 				galleryThumbs[i].onclick = function(e) {
 					let targetId = e.target.id;
+					let pieceArray = xmlData.getElementsByTagName("piece");
+					
+					for(let j=0; j< pieceArray.length; j++){
+						let pieceId = pieceArray[j].getAttribute("id");
+						if(targetId == pieceId){
+							//
+							let pieceURLElement = pieceArray[j].getElementsByTagName("url")[0];
+							let pieceURLData = pieceURLElement.childNodes[0];
+							let pieceURLValue = pieceURLData.nodeValue;
+							//
+							let pieceTitleElement = pieceArray[j].getElementsByTagName("title")[0];
+							let pieceTitleData = pieceTitleElement.childNodes[0];
+							let pieceTitleValue = pieceTitleData.nodeValue;
+							//
+							let pieceDescriptionElement = pieceArray[j].getElementsByTagName("description")[0];
+							let pieceDescriptionData = pieceDescriptionElement.childNodes[0];
+							let pieceDescriptionValue = pieceDescriptionData.nodeValue;
+							//
+							galleryImage.src = pieceURLValue;
+							modalTitle.innerHTML = pieceTitleValue;
+							modalDescription.innerHTML = pieceDescriptionValue;
+						}
+					}
+					
 					modal.scrollTop = "0";
 					body.classList.toggle("modal-open");
 					modal.classList.toggle("modal-open");
