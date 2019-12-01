@@ -6,51 +6,44 @@ body{
 	box-sizing: border-box;
 	margin:0;
 	overflow-x:hidden;
+	overflow-y:scroll;
 	scroll-behavior: smooth;
+	
 }
-body.modal-closed{
-	overflow-y:auto;
-}
+
 body.modal-open{
 	overflow-y:hidden;
 }
+
 #gallery-modal{
 	scroll-behavior: smooth;
 	height:100vh;
-	overflow-y:scroll;
+	overflow-y:auto;
+	overflow-x:hidden;
 	display:block;
 	position: fixed;
 	z-index: 100;
-	transition: width 1s, left .5s, top .5s, height 1s;
+	transition: width 1s, left .5s, top .5s, height 1s, background-color 1s;
 	background-color: #222;
-}
-#gallery-modal.modal-closed{
 	top:120vh;
 }
 
 #gallery-modal.modal-open{
 	top:0;
-	
+}
+#gallery-modal.fullscreen{
+	background-color:black;
 }
 @media only screen and (min-width: 600px) {
 	#gallery-modal{
-		background-image:url("images/hero_2tone.jpg");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-attachment:fixed;
-		background-size:cover;	
-	}
-	#gallery-modal.modal-closed{
 		top:0;
 		left:100vw;
 		width:200vw;
 	}
 
 	#gallery-modal.modal-open{
-		top:0;
 		left:0;
 		width:100vw;
-		
 	}
 }
 
@@ -60,36 +53,33 @@ body.modal-open{
 	top:0;
 	width:100vw;	
 }
-#modal-bg.default{
-	
-}
-#modal-bg.fullscreen{
-	
-}
 
 #image-section{
 	display:block;
-	z-index:140;
-	transition: padding-right 1s;
-}
-#image-section.default{
+	max-height:100%;
 	padding-right:0;
+	transition: padding 1s;
+	z-index:140;
 }
+
 @media only screen and (min-width: 600px) {
-	#image-section.default{
+	#image-section{
 		padding-right:400px;
+		padding-top:90px;
+		height:100%;
+	}
+	#image-section.fullscreen{
+		padding-right:0;
+		padding-top:0;
 	}
 }
-#image-section.fullscreen{
-	padding-right:0;
-}
+
 
 #gallery-image{
 	box-sizing: border-box;
 	display:block;
 	position:relative;
 	margin-top:70px;
-	
 	padding:20px;
 	max-height:100%;
 	max-width:100%;
@@ -98,19 +88,10 @@ body.modal-open{
 	margin-left:auto;
 	margin-right:auto;
 }
-#gallery-image:hover{
-	
-}
-#gallery-image.default{
-	
-}
-#gallery-image.fullscreen{
 
-}
 @media only screen and (min-width: 600px) {
 	#gallery-image{
-		margin-top:90px;
-		margin-bottom:90px;
+		margin-top:0;
 	}
 }
 
@@ -127,13 +108,6 @@ body.modal-open{
 	
 }
 
-#text-section.default{
-	
-}
-
-#text-section.fullscreen{
-	
-}
 @media only screen and (min-width: 600px) {
 	#text-section{
 		width:400px;
@@ -163,10 +137,7 @@ body.modal-open{
 	top:20px;
 	z-index:160;
 }
-#close-btn.default{
-}
-#close-btn.fullscreen{
-}
+
 #info-btn{
 	width:50px;
 	height:50px;
@@ -182,25 +153,7 @@ body.modal-open{
 		display:none;
 	}
 }
-#back-btn{
-	display:none;
-}
-#back-btn.default{
-}
-#back-btn.fullscreen{
-}
-@media only screen and (min-width: 600px) {
-	#back-btn{
-		width:50px;
-		height:50px;
-		cursor: pointer;
-		position:absolute;
-		right:-100px;
-		top:20px;
-		display:block;
-		transition: right 1s;
-	}
-}
+
 #down-btn{
 	width:50px;
 	height:50px;
@@ -227,14 +180,14 @@ body.modal-open{
 }
 @media only screen and (min-width: 600px) {
 	#modal-title{
-		font-size:86px;
+		font-size:72px;
 	}
 }
 #modal-description{
 	color:white;
 	font-family: 'Cabin', sans-serif;
 	font-size:24px;
-	
+	padding-bottom:40px;
 }
 #main-content{
 	width:100vw;
@@ -250,14 +203,9 @@ body.modal-open{
 	justify-content: center;
 	align-items: center;	
 }
-@media only screen and (min-width: 600px) {
-	#section-hero{
-			background-attachment: fixed;
-	}
-}
+
 #hero-text{
 	text-align: center;
-
 }
 @media only screen and (min-width: 600px) {
 	#hero-text{
@@ -266,8 +214,9 @@ body.modal-open{
 }
 #main-title{
 	color:#E7F2ED;
-	font-size:86px;
+	font-size:72px;
 	font-family: 'Bangers', cursive;
+	padding-bottom:10px;
 	padding-left:10px;
 	padding-right:10px;
 }
@@ -289,6 +238,7 @@ body.modal-open{
 	color:#E7F2ED;
 	font-size:36px;
 	font-family: 'Bangers', cursive;
+	line-height:50px;
 	text-decoration:none;
 	padding-left:10px;
 	padding-right:10px;
@@ -318,15 +268,7 @@ body.modal-open{
 #section-main{	
 	background-color:#97558D;	
 }
-@media only screen and (min-width: 600px) {
-	#section-main{
-		background-image:url("images/radial.jpg");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-attachment: fixed;
-		background-size:cover;
-	}
-}
+
 .gallery{
 	padding-left: 20px;
 	padding-right: 20px;

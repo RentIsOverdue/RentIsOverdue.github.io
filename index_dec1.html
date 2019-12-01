@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="main_style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cabin:400i&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Miles Anders: Illustration! Design! Adventure!</title>
+	</head>
+	<body>
+		<div id="gallery-modal">
+			<div id="button-section">
+				<img src="images/x.svg" id="close-btn">
+				<a href="#text-section"><img src="images/i.svg" id="info-btn"></a>
+			</div>
+			<div id="image-section">			
+				<img id="gallery-image" src="images/illustration/sunset.jpg">
+			</div>
+			<div id="text-section">	
+				<div id="modal-title">Doce Monos Beer</div>
+				<div id="modal-description">8.5" x 11' Poster painted in Photoshop. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+			</div>	
+		</div>
+		
+		<div id="main-content">
+		<div id="section-hero">
+			<div id="hero-text">
+				<div id="main-title">Miles Anders</div>
+				<div id="sections-menu">
+					<a class="main-link" href="#gallery-illustration">Illustration!</a>
+					<a class="main-link" href="#gallery-design">Design!</a>
+					<a class="main-link" href="#gallery-adventure">Adventure!</a>
+				</div>
+			</div>
+		</div>
+		<div id="section-main">
+			<div class="gallery" id="gallery-illustration">
+				<div class="gallery-title">Illustration!</div>
+				<div class="gallery-content">
+					<div class="gallery-item"><img id="newport-nightcap" class="thumb" src="images/illustration/newport_nightcap_thumb.jpg"></div>
+					<div class="gallery-item"><img id="sharks" class="thumb" src="images/illustration/sharks_thumb.jpg"></div>
+					<div class="gallery-item"><img id="karaoke1" class="thumb" src="images/illustration/karaoke1_thumb.jpg"></div>
+					<div class="gallery-item"><img id="doce-monos" class="thumb" src="images/illustration/doce_monos_thumb.jpg"></div>
+				</div>
+			</div>
+			<div class="gallery" id="gallery-design">
+				<div class="gallery-title">Design!</div>
+				<div class="gallery-content">
+				
+				</div>
+			</div>
+			<div class="gallery" id="gallery-adventure">
+				<div class="gallery-title">Adventure!</div>
+				<div class="gallery-content">
+					
+				</div>
+			</div>
+		</div>
+		</div>
+		<script>
+			
+			//cache DOM
+			var modal = document.getElementById("gallery-modal");
+			var modalBg = document.getElementById("modal-bg");
+			var galleryThumbs = document.getElementsByClassName("gallery-item");
+			var closeModalBtn = document.getElementById("close-btn");
+			var infoBtn = document.getElementById("info-btn");
+			var body = document.getElementsByTagName("body")[0];
+			var imageSection = document.getElementById("image-section");
+			var galleryImage = document.getElementById("gallery-image");
+			var textSection = document.getElementById("text-section");
+			var modalTitle = document.getElementById("modal-title");
+			var modalDescription = document.getElementById("modal-description");			
+
+			//click functions
+			
+			//add click function to thumbs to open modal
+			for(let i=0; i<galleryThumbs.length; i++){
+				galleryThumbs[i].onclick = function(e) {
+					let targetId = e.target.id;
+					modal.scrollTop = "0";
+					body.classList.toggle("modal-open");
+					modal.classList.toggle("modal-open");
+				}
+			}
+			
+			//close modal
+			closeModalBtn.onclick = function() {	
+				body.classList.toggle("modal-open");
+				modal.classList.toggle("modal-open");
+				imageSection.classList.remove("fullscreen");
+				textSection.classList.remove("fullscreen");
+				galleryImage.classList.remove("fullscreen");
+				modal.classList.remove("fullscreen");				
+			}
+			
+			//make modal image fullscreen
+			galleryImage.onclick = function(){
+				imageSection.classList.toggle("fullscreen");
+				textSection.classList.toggle("fullscreen");
+				galleryImage.classList.toggle("fullscreen");
+				modal.classList.toggle("fullscreen");				
+			}
+			
+		</script>
+	</body>
+</html>
