@@ -88,7 +88,7 @@
 				for(let i=0; i< galleryArray.length; i++){
 					
 					let newGallery = document.createElement("div");
-					newGallery.id = galleryArray[i].id;
+					newGallery.id = galleryArray[i].getAttribute("id");
 					
 					let galleryTitle = galleryArray[i].getElementsByTagName("gallery-title")[0];
 					let galleryTitleURLElement = galleryTitle.childNodes[0];
