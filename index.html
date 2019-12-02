@@ -116,6 +116,9 @@
 						newThumbnail.id = currentGalleryItem.getAttribute("id");
 						newThumbnail.src = getNodeVal(currentGalleryItem, "thumburl");						
 						newThumbnail.onclick = function(e){
+							modalTitle.innerHTML = "";
+							modalDescription.innerHTML = "";
+							galleryImage.src = "";	
 							modalTitle.innerHTML = getNodeVal(currentGalleryItem, "title");
 							modalDescription.innerHTML = getNodeVal(currentGalleryItem, "description");
 							galleryImage.src = getNodeVal(currentGalleryItem, "url");
@@ -143,9 +146,6 @@
 				textSection.classList.remove("fullscreen");
 				galleryImage.classList.remove("fullscreen");
 				modal.classList.remove("fullscreen");	
-				modalTitle.innerHTML = "";
-				modalDescription.innerHTML = "";
-				galleryImage.src = "";	
 			}
 			
 			//make modal image fullscreen
