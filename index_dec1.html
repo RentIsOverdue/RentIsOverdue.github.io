@@ -85,8 +85,8 @@
 			
 			//generate thumbnails
 			function loadThumbnails(xml){
-				function getNodeVal(tag){
-						let theTag = currentGalleryItem.getElementsByTagName(tag)[0];
+				function getNodeVal(parent, tag){
+						let theTag = parent.getElementsByTagName(tag)[0];
 						let theURL = theTag.childNodes[0];
 						let theValue = theURL.nodeValue;
 						return(theValue);
@@ -94,26 +94,27 @@
 				
 				let galleryArray = xml.getElementsByTagName("gallery");
 				for(let i=0; i< galleryArray.length; i++){
+					let currentGallery = galleryArray[i];
 					
 					let newGallery = document.createElement("div");
-					newGallery.id = galleryArray[i].getAttribute("id");
+					newGallery.id = currentGallery.getAttribute("id");
 					newGallery.classList.add("gallery");
 					
 					let newGalleryTitle = document.createElement("div");
 					newGalleryTitle.classList.add("gallery-title");
-					newGalleryTitle.innerHTML = getNodeVal("gallery-title");
+					newGalleryTitle.innerHTML = getNodeVal(currentGallery, "gallery-title");
 					
 					newGalleryContent = document.createElement("div");
 					newGalleryContent.classList.add("gallery-content");
 					
-					let galleryItemArray = galleryArray[i].getElementsByTagName("gallery-content")[0].getElementsByTagName("gallery-item");
+					let galleryItemArray = currentGallery.getElementsByTagName("gallery-content")[0].getElementsByTagName("gallery-item");
 					for(let j=0; j< galleryItemArray.length; j++){
 						let currentGalleryItem = galleryItemArray[j];
 						let newGalleryItem = document.createElement("div");
 						let newThumbnail = document.createElement("img");
 						newThumbnail.classList.add("thumb");
 						newThumbnail.id = currentGalleryItem.getAttribute("id");
-						newThumbnail.src = getNodeVal("thumburl");						
+						newThumbnail.src = getNodeVal(currentGalleryItem, "thumburl");						
 						
 						newGalleryItem.appendChild(newThumbnail);
 						newGalleryContent.appendChild(newGalleryItem);
