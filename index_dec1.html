@@ -27,9 +27,9 @@
 			<div id="hero-text">
 				<div id="main-title">Miles Anders</div>
 				<div id="sections-menu">
-					<a class="main-link" href="#gallery-illustration">Illustration!</a>
-					<a class="main-link" href="#gallery-design">Design!</a>
-					<a class="main-link" href="#gallery-adventure">Adventure!</a>
+					<a class="main-link" href="#illustration">Illustration!</a>
+					<a class="main-link" href="#design">Design!</a>
+					<a class="main-link" href="#adventure">Adventure!</a>
 				</div>
 			</div>
 		</div>
@@ -85,7 +85,13 @@
 			
 			//generate thumbnails
 			function loadThumbnails(xml){
-				//console.log("it worked");
+				function getNodeVal(tag){
+						let theTag = currentGalleryItem.getElementsByTagName(tag)[0];
+						let theURL = theTag.childNodes[0];
+						let theValue = theURL.nodeValue;
+						return(theValue);
+				}
+				
 				let galleryArray = xml.getElementsByTagName("gallery");
 				for(let i=0; i< galleryArray.length; i++){
 					
@@ -93,24 +99,21 @@
 					newGallery.id = galleryArray[i].getAttribute("id");
 					newGallery.classList.add("gallery");
 					
-					let galleryTitle = galleryArray[i].getElementsByTagName("gallery-title")[0];
-					let galleryTitleURLElement = galleryTitle.childNodes[0];
-					let galleryTitleValue = galleryTitleURLElement.nodeValue;
-					
 					let newGalleryTitle = document.createElement("div");
 					newGalleryTitle.classList.add("gallery-title");
-					newGalleryTitle.innerHTML = galleryTitleValue;
+					newGalleryTitle.innerHTML = getNodeVal("gallery-title");
 					
 					newGalleryContent = document.createElement("div");
-					newGalleryTitle.classList.add("gallery-content");
+					newGalleryContent.classList.add("gallery-content");
 					
-					let galleryItemArray = galleryArray[i].getElementsByTagName("gallery-item");
+					let galleryItemArray = galleryArray[i].getElementsByTagName("gallery-content")[0].getElementsByTagName("gallery-item");
 					for(let j=0; j< galleryItemArray.length; j++){
-					console.log(j);
+						let currentGalleryItem = galleryItemArray[j];
 						let newGalleryItem = document.createElement("div");
 						let newThumbnail = document.createElement("img");
 						newThumbnail.classList.add("thumb");
-						newThumbnail.id = galleryItemArray[j].getAttribute("id");
+						newThumbnail.id = currentGalleryItem.getAttribute("id");
+						newThumbnail.src = getNodeVal("thumburl");						
 						
 						newGalleryItem.appendChild(newThumbnail);
 						newGalleryContent.appendChild(newGalleryItem);

@@ -2,35 +2,41 @@
 <gallery-list>
 	<gallery id="illustration">
 		<gallery-title>Illustration!</gallery-title>
-		<gallery-item id="newport-nightcap">
-			<title>Newport Nightcap</title>
-			<description>Poster painted in Photoshop for an event at the Gas Lamp Grille.</description>
-			<url>images/illustration/newport_nightcap.jpg</url>
-			<thumburl>images/illustration/newport_nightcap_thumb.jpg</thumburl>
-		</gallery-item>
-		<gallery-item id="sharks">
-			<title>Shark Spiral</title>
-			<description>Poster painted in Photoshop.</description>
-			<url>images/illustration/sharks.jpg</url>
-			<thumburl>images/illustration/sharks_thumb.jpg</thumburl>
-		</gallery-item>
-		<gallery-item id="karaoke1">
-			<title>All Asia Karaoke</title>
-			<description>Poster painted in Photoshop for a karaoke night at the All Asia bar.</description>
-			<url>images/illustration/karaoke1.jpg</url>
-			<thumburl>images/illustration/karaoke1_thumb.jpg</thumburl>
-		</gallery-item>
-		<gallery-item id="doce-monos">
-			<title>Doce Monos Beer</title>
-			<description>Poster painted in Photoshop for a brewery in Panama.</description>
-			<url>images/illustration/doce_monos.jpg</url>
-			<thumburl>images/illustration/doce_monos_thumb.jpg</thumburl>
-		</gallery-item>
+		<gallery-content>
+			<gallery-item id="newport-nightcap">
+				<title>Newport Nightcap</title>
+				<description>Poster painted in Photoshop for an event at the Gas Lamp Grille.</description>
+				<url>images/illustration/newport_nightcap.jpg</url>
+				<thumburl>images/illustration/newport_nightcap_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="sharks">
+				<title>Shark Spiral</title>
+				<description>Poster painted in Photoshop.</description>
+				<url>images/illustration/sharks.jpg</url>
+				<thumburl>images/illustration/sharks_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="karaoke1">
+				<title>All Asia Karaoke</title>
+				<description>Poster painted in Photoshop for a karaoke night at the All Asia bar.</description>
+				<url>images/illustration/karaoke1.jpg</url>
+				<thumburl>images/illustration/karaoke1_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="doce-monos">
+				<title>Doce Monos Beer</title>
+				<description>Poster painted in Photoshop for a brewery in Panama.</description>
+				<url>images/illustration/doce_monos.jpg</url>
+				<thumburl>images/illustration/doce_monos_thumb.jpg</thumburl>
+			</gallery-item>
+		</gallery-content>
 	</gallery>
 	<gallery id="design">
 		<gallery-title>Design!</gallery-title>
+		<gallery-content>
+		</gallery-content>
 	</gallery>
 	<gallery id="adventure">
 		<gallery-title>Adventure!</gallery-title>
+		<gallery-content>
+		</gallery-content>
 	</gallery>
 </gallery-list>
