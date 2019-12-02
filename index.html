@@ -9,17 +9,17 @@
 	</head>
 	<body>
 		<div id="gallery-modal">
-			<img src="images/x.svg" id="close-btn">
-			<div id="modal-bg">		
-				<div id="image-section">		
-					<img src="images/left_arrow.svg" id="back-btn">
-					<img id="gallery-image" src="">
-				</div>
-				<div id="text-section">			
-					<div id="modal-title"></div>
-					<div id="modal-description"></div>
-				</div>
+			<div id="button-section">
+				<img src="images/x.svg" id="close-btn">
+				<a href="#text-section"><img src="images/i.svg" id="info-btn"></a>
 			</div>
+			<div id="image-section">			
+				<img id="gallery-image" src="">
+			</div>
+			<div id="text-section">	
+				<div id="modal-title"></div>
+				<div id="modal-description"></div>
+			</div>	
 		</div>
 		
 		<div id="main-content">
@@ -27,49 +27,49 @@
 			<div id="hero-text">
 				<div id="main-title">Miles Anders</div>
 				<div id="sections-menu">
-					<a class="main-link" href="#gallery-illustration">Illustration!</a>
-					<a class="main-link" href="#gallery-design">Design!</a>
-					<a class="main-link" href="#gallery-adventure">Adventure!</a>
+					<a class="main-link" href="#illustration">Illustration!</a>
+					<a class="main-link" href="#design">Design!</a>
+					<a class="main-link" href="#adventure">Adventure!</a>
 				</div>
 			</div>
 		</div>
 		<div id="section-main">
-			<div class="gallery" id="gallery-illustration">
-				<div class="gallery-title">Illustration!</div>
-				<div class="gallery-content">
-					<div class="gallery-item"><img id="newport-nightcap" class="thumb" src="images/illustration/newport_nightcap_thumb.jpg"></div>
-					<div class="gallery-item"><img id="sharks" class="thumb" src="images/illustration/sharks_thumb.jpg"></div>
-					<div class="gallery-item"><img id="karaoke1" class="thumb" src="images/illustration/karaoke1_thumb.jpg"></div>
-					<div class="gallery-item"><img id="doce-monos" class="thumb" src="images/illustration/doce_monos_thumb.jpg"></div>
-				</div>
-			</div>
-			<div class="gallery" id="gallery-design">
-				<div class="gallery-title">Design!</div>
-				<div class="gallery-content">
-				</div>
-			</div>
-			<div class="gallery" id="gallery-adventure">
-				<div class="gallery-title">Adventure!</div>
-				<div class="gallery-content">
-					
-				</div>
-			</div>
+			<!-- <div class="gallery" id="illustration"> -->
+				<!-- <div class="gallery-title">Illustration!</div> -->
+				<!-- <div class="gallery-content"> -->
+					<!-- <div class="gallery-item"><img id="newport-nightcap" class="thumb" src="images/illustration/newport_nightcap_thumb.jpg"></div> -->
+					<!-- <div class="gallery-item"><img id="sharks" class="thumb" src="images/illustration/sharks_thumb.jpg"></div> -->
+					<!-- <div class="gallery-item"><img id="karaoke1" class="thumb" src="images/illustration/karaoke1_thumb.jpg"></div> -->
+					<!-- <div class="gallery-item"><img id="doce-monos" class="thumb" src="images/illustration/doce_monos_thumb.jpg"></div> -->
+				<!-- </div> -->
+			<!-- </div> -->
+			<!-- <div class="gallery" id="design"> -->
+				<!-- <div class="gallery-title">Design!</div> -->
+				<!-- <div class="gallery-content"> -->
+				<!-- </div> -->
+			<!-- </div> -->
+			<!-- <div class="gallery" id="adventure"> -->
+				<!-- <div class="gallery-title">Adventure!</div> -->
+				<!-- <div class="gallery-content"> -->
+				<!-- </div> -->
+			<!-- </div> -->
 		</div>
 		</div>
 		<script>
-		
+			
 			//cache DOM
 			var modal = document.getElementById("gallery-modal");
 			var modalBg = document.getElementById("modal-bg");
 			var galleryThumbs = document.getElementsByClassName("gallery-item");
 			var closeModalBtn = document.getElementById("close-btn");
-			var backBtn = document.getElementById("back-btn");
+			var infoBtn = document.getElementById("info-btn");
 			var body = document.getElementsByTagName("body")[0];
 			var imageSection = document.getElementById("image-section");
 			var galleryImage = document.getElementById("gallery-image");
 			var textSection = document.getElementById("text-section");
 			var modalTitle = document.getElementById("modal-title");
-			var modalDescription = document.getElementById("modal-description");
+			var modalDescription = document.getElementById("modal-description");			
+			var sectionMain = document.getElementById("section-main");
 			
 			//load xml
 			var xmlData;
@@ -77,68 +77,85 @@
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					xmlData = this.responseXML;
+					loadThumbnails(xmlData);
 				}
 			};
 			xhttp.open("GET", "gallery.xml", true);
 			xhttp.send();
 			
-			//click functions
-			
-			//add click function to thumbs
-			for(let i=0; i<galleryThumbs.length; i++){
-				galleryThumbs[i].onclick = function(e) {
-					let targetId = e.target.id;
-					//console.log(e.target.id);
-					let pieceArray = xmlData.getElementsByTagName("piece");
-					//console.log(xmlData.getElementsByTagName("piece"));
-					for(let j=0; j< pieceArray.length; j++){
-						let pieceId = pieceArray[j].getAttribute("id");
-						if(targetId == pieceId){
-							//console.log("You clicked "+pieceId);
-							let pieceURLElement = pieceArray[j].getElementsByTagName("url")[0];
-							let pieceURLData = pieceURLElement.childNodes[0];
-							let pieceURLValue = pieceURLData.nodeValue;
-							//console.log(pieceURLValue);
-							let pieceTitleElement = pieceArray[j].getElementsByTagName("title")[0];
-							let pieceTitleData = pieceTitleElement.childNodes[0];
-							let pieceTitleValue = pieceTitleData.nodeValue;
-							//
-							let pieceDescriptionElement = pieceArray[j].getElementsByTagName("description")[0];
-							let pieceDescriptionData = pieceDescriptionElement.childNodes[0];
-							let pieceDescriptionValue = pieceDescriptionData.nodeValue;
-							//
-							galleryImage.src = pieceURLValue;
-							modalTitle.innerHTML = pieceTitleValue;
-							modalDescription.innerHTML = pieceDescriptionValue;
-						}
-					}
-					imageSection.scrollTop = "0";
-					modal.style.left = "0";
-					modal.style.width = "100vw";
-					body.style.overflowY = "hidden";
+			//generate thumbnails
+			function loadThumbnails(xml){
+				function getNodeVal(parent, tag){
+						let theTag = parent.getElementsByTagName(tag)[0];
+						let theURL = theTag.childNodes[0];
+						let theValue = theURL.nodeValue;
+						return(theValue);
 				}
+				
+				let galleryArray = xml.getElementsByTagName("gallery");
+				for(let i=0; i< galleryArray.length; i++){
+					let currentGallery = galleryArray[i];
+					
+					let newGallery = document.createElement("div");
+					newGallery.id = currentGallery.getAttribute("id");
+					newGallery.classList.add("gallery");
+					
+					let newGalleryTitle = document.createElement("div");
+					newGalleryTitle.classList.add("gallery-title");
+					newGalleryTitle.innerHTML = getNodeVal(currentGallery, "gallery-title");
+					
+					newGalleryContent = document.createElement("div");
+					newGalleryContent.classList.add("gallery-content");
+					
+					let galleryItemArray = currentGallery.getElementsByTagName("gallery-content")[0].getElementsByTagName("gallery-item");
+					for(let j=0; j< galleryItemArray.length; j++){
+						let currentGalleryItem = galleryItemArray[j];
+						let newGalleryItem = document.createElement("div");
+						let newThumbnail = document.createElement("img");
+						newThumbnail.classList.add("thumb");
+						newThumbnail.id = currentGalleryItem.getAttribute("id");
+						newThumbnail.src = getNodeVal(currentGalleryItem, "thumburl");						
+						newThumbnail.onclick = function(e){
+							modalTitle.innerHTML = getNodeVal(currentGalleryItem, "title");
+							modalDescription.innerHTML = getNodeVal(currentGalleryItem, "description");
+							galleryImage.src = getNodeVal(currentGalleryItem, "url");
+							modal.scrollTop = "0";
+							body.classList.toggle("modal-open");
+							modal.classList.toggle("modal-open");
+						}
+						
+						
+						newGalleryItem.appendChild(newThumbnail);
+						newGalleryContent.appendChild(newGalleryItem);
+					}
+					
+					newGallery.appendChild(newGalleryTitle);
+					newGallery.appendChild(newGalleryContent);
+					sectionMain.appendChild(newGallery);
+				}
+				}
+	
+			//close modal
+			closeModalBtn.onclick = function() {	
+				body.classList.toggle("modal-open");
+				modal.classList.toggle("modal-open");
+				imageSection.classList.remove("fullscreen");
+				textSection.classList.remove("fullscreen");
+				galleryImage.classList.remove("fullscreen");
+				modal.classList.remove("fullscreen");	
+				modalTitle.innerHTML = "";
+				modalDescription.innerHTML = "";
+				galleryImage.src = "";	
 			}
 			
-			closeModalBtn.onclick = function() {	
-				modal.style.left = "100vw";
-				modal.style.width = "200vw";
-				body.style.overflowY = "auto";	
-			}
+			//make modal image fullscreen
 			galleryImage.onclick = function(){
-				modalBg.style.backgroundColor = "#222";
-				textSection.style.right = "-500px";
-				imageSection.style.paddingRight = "0";
-				galleryImage.style.transform = "rotate(0deg)";
-				backBtn.style.right = "20px";
+				imageSection.classList.toggle("fullscreen");
+				textSection.classList.toggle("fullscreen");
+				galleryImage.classList.toggle("fullscreen");
+				modal.classList.toggle("fullscreen");				
 			}
-			backBtn.onclick = function(){
-				imageSection.style.paddingRight = "400px";
-				galleryImage.style.transform = "rotate(-2deg)";
-				modalBg.style.backgroundColor = "rgba(0,0,0,0)";
-				backBtn.style.right = "-100px";
-				textSection.style.right = "0";
-			}
-
+			
 		</script>
 	</body>
 </html>
