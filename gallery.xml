@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gallery>
-	<illustration>
+<gallery-list>
+	<gallery id="illustration">
+		<gallery-title>Illustration!</gallery-title>
 		<piece id="newport-nightcap">
 			<title>Newport Nightcap</title>
-			<description>11" x 17" poster painted in Adobe Photoshop.</description>
+			<description>Poster painted in Photoshop for an event at the Gas Lamp Grille.</description>
 			<url>images/illustration/newport_nightcap.jpg</url>
+			<thumburl>images/illustration/newport_nightcap_thumb.jpg</thumburl>
 		</piece>
 		<piece id="sharks">
 			<title>Shark Spiral</title>
-			<description>11" x 17" poster painted in Adobe Photoshop.</description>
+			<description>Poster painted in Photoshop.</description>
 			<url>images/illustration/sharks.jpg</url>
+			<thumburl>images/illustration/sharks_thumb.jpg</thumburl>
 		</piece>
 		<piece id="karaoke1">
 			<title>All Asia Karaoke</title>
-			<description>8.5" x 11" poster painted in Adobe Photoshop.</description>
+			<description>Poster painted in Photoshop for a karaoke night at the All Asia bar.</description>
 			<url>images/illustration/karaoke1.jpg</url>
+			<thumburl>images/illustration/karaoke1_thumb.jpg</thumburl>
 		</piece>
 		<piece id="doce-monos">
 			<title>Doce Monos Beer</title>
-			<description>8.5" x 11" poster painted in Adobe Photoshop.</description>
+			<description>Poster painted in Photoshop for a brewery in Panama.</description>
 			<url>images/illustration/doce_monos.jpg</url>
+			<thumburl>images/illustration/doce_monos_thumb.jpg</thumburl>
 		</piece>
-	</illustration>
-	<design>
-	
-	</design>
-	<adventure>
-		
-	</adventure>
-</gallery>
+	</gallery>
+	<gallery id="design">
+		<gallery-title>Design!</gallery-title>
+	</gallery>
+	<gallery id="adventure">
+		<gallery-title>Adventure!</gallery-title>
+	</gallery>
+</gallery-list>
