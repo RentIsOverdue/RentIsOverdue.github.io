@@ -77,13 +77,15 @@
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					xmlData = this.responseXML;
+					loadThumbnails();
 				}
 			};
 			xhttp.open("GET", "gallery.xml", true);
 			xhttp.send();
 			
 			//generate thumbnails
-			
+			function loadThumbnails(){
+				console.log("it worked");
 				let galleryArray = xmlData.getElementsByTagName("gallery");
 				for(let i=0; i< galleryArray.length; i++){
 					
@@ -101,7 +103,7 @@
 					newGallery.appendChild(newGalleryTitle);
 					sectionMain.appendChild(newGallery);
 				}
-				
+				}
 				//let pieceArray = xmlData.getElementsByTagName("piece");
 				<!-- for(let i=0; i< pieceArray.length; i++){ -->
 					<!-- let newGalleryItem = document.createElement("div"); -->
