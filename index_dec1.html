@@ -85,12 +85,13 @@
 			
 			//generate thumbnails
 			function loadThumbnails(xml){
-				console.log("it worked");
+				//console.log("it worked");
 				let galleryArray = xml.getElementsByTagName("gallery");
 				for(let i=0; i< galleryArray.length; i++){
 					
 					let newGallery = document.createElement("div");
 					newGallery.id = galleryArray[i].getAttribute("id");
+					newGallery.classList.add("gallery");
 					
 					let galleryTitle = galleryArray[i].getElementsByTagName("gallery-title")[0];
 					let galleryTitleURLElement = galleryTitle.childNodes[0];
