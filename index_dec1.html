@@ -101,7 +101,22 @@
 					newGalleryTitle.classList.add("gallery-title");
 					newGalleryTitle.innerHTML = galleryTitleValue;
 					
+					newGalleryContent= = document.createElement("div");
+					newGalleryTitle.classList.add("gallery-content");
+					
+					let galleryItemArray = galleryArray[i].getElementsByTagName("gallery-item");
+					for(let j=0; j< galleryItemArray.length; j++){
+						let newGalleryItem = document.createElement("div");
+						let newThumbnail = document.createElement("img");
+						newThumbnail.classList.add("thumb");
+						newThumbnail.id = galleryItemArray[j].getAttribute("id");
+						
+						newGalleryItem.appendChild(newThumbnail);
+						newGalleryContent.appendChild(newGalleryItem);
+					}
+					
 					newGallery.appendChild(newGalleryTitle);
+					newGallery.appendChild(newGalleryContent);
 					sectionMain.appendChild(newGallery);
 				}
 				}
