@@ -77,16 +77,16 @@
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					xmlData = this.responseXML;
-					loadThumbnails();
+					loadThumbnails(xmlData);
 				}
 			};
 			xhttp.open("GET", "gallery.xml", true);
 			xhttp.send();
 			
 			//generate thumbnails
-			function loadThumbnails(){
+			function loadThumbnails(xml){
 				console.log("it worked");
-				let galleryArray = xmlData.getElementsByTagName("gallery");
+				let galleryArray = xml.getElementsByTagName("gallery");
 				for(let i=0; i< galleryArray.length; i++){
 					
 					let newGallery = document.createElement("div");
