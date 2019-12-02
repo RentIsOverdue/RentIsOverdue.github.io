@@ -115,6 +115,15 @@
 						newThumbnail.classList.add("thumb");
 						newThumbnail.id = currentGalleryItem.getAttribute("id");
 						newThumbnail.src = getNodeVal(currentGalleryItem, "thumburl");						
+						newThumbnail.onclick = function(e){
+							modalTitle.innerHTML = getNodeVal(currentGalleryItem, "title");
+							modalDescription.innerHTML = getNodeVal(currentGalleryItem, "description");
+							galleryImage.src = getNodeVal(currentGalleryItem, "url");
+							modal.scrollTop = "0";
+							body.classList.toggle("modal-open");
+							modal.classList.toggle("modal-open");
+						}
+						
 						
 						newGalleryItem.appendChild(newThumbnail);
 						newGalleryContent.appendChild(newGalleryItem);
@@ -125,19 +134,7 @@
 					sectionMain.appendChild(newGallery);
 				}
 				}
-				//let pieceArray = xmlData.getElementsByTagName("piece");
-				<!-- for(let i=0; i< pieceArray.length; i++){ -->
-					<!-- let newGalleryItem = document.createElement("div"); -->
-					<!-- let newThumbnail = document.createElement("img"); -->
-					<!-- newThumbnail.classList.add("thumb"); -->
-					<!-- newThumbnail.id = ; -->
-					<!-- newThumbnail.src = ; -->
-					<!-- newGalleryItem.appendChild(newThumbnail"); -->
-				<!-- } -->
-			
-			
-			//click functions
-			
+	
 			//add click function to thumbs to open modal
 			<!-- for(let i=0; i<galleryThumbs.length; i++){ -->
 				<!-- galleryThumbs[i].onclick = function(e) { -->
@@ -165,10 +162,6 @@
 							<!-- modalDescription.innerHTML = pieceDescriptionValue; -->
 						<!-- } -->
 					<!-- } -->
-					
-					<!-- modal.scrollTop = "0"; -->
-					<!-- body.classList.toggle("modal-open"); -->
-					<!-- modal.classList.toggle("modal-open"); -->
 				<!-- } -->
 			<!-- } -->
 			
