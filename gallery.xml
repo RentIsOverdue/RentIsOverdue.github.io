@@ -37,6 +37,24 @@
 	<gallery id="adventure">
 		<gallery-title>Adventure!</gallery-title>
 		<gallery-content>
+			<gallery-item id="charles-river-road">
+				<title>Charles River Road</title>
+				<description>Plein air painting of Charles River Road in Watertown, MA.</description>
+				<url>images/adventure/charles_river_road.jpg</url>
+				<thumburl>images/adventure/charles_river_road_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="tree-and-path">
+				<title>Tree and Path</title>
+				<description>Plein air painting of a tree and path near the river in Watertown, MA.</description>
+				<url>images/adventure/tree.jpg</url>
+				<thumburl>images/adventure/tree_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="tree-and-path">
+				<title>Turtle Dock</title>
+				<description>Plein air painting of the Charles River in Watertown, MA.</description>
+				<url>images/adventure/turtle_dock.jpg</url>
+				<thumburl>images/adventure/turtle_dock.jpg</thumburl>
+			</gallery-item>
 		</gallery-content>
 	</gallery>
 </gallery-list>
