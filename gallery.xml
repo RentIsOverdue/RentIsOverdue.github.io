@@ -43,17 +43,47 @@
 				<url>images/adventure/charles_river_road.jpg</url>
 				<thumburl>images/adventure/charles_river_road_thumb.jpg</thumburl>
 			</gallery-item>
-			<gallery-item id="tree-and-path">
-				<title>Tree and Path</title>
-				<description>Plein air painting of a tree and path near the river in Watertown, MA.</description>
-				<url>images/adventure/tree.jpg</url>
-				<thumburl>images/adventure/tree_thumb.jpg</thumburl>
-			</gallery-item>
-			<gallery-item id="tree-and-path">
-				<title>Turtle Dock</title>
+			<gallery-item id="facing-east">
+				<title>Facing East</title>
 				<description>Plein air painting of the Charles River in Watertown, MA.</description>
+				<url>images/adventure/facing_east.jpg</url>
+				<thumburl>images/adventure/facing_east_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="lilypads-half-in-shadow">
+				<title>Lilypads Half in Shadow</title>
+				<description>Plein air painting of the Charles River in Watertown, MA.</description>
+				<url>images/adventure/lilypads_half_in_shadow.jpg</url>
+				<thumburl>images/adventure/lilpads_half_in_shadow_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="lilypads-in-the-sun">
+				<title>Lilypads in the Sun</title>
+				<description>Plein air painting of the Charles River in Watertown, MA.</description>
+				<url>images/adventure/lilypads_in_the_sun.jpg</url>
+				<thumburl>images/adventure/lilpads_in_the_sun_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="pumpkin-drain">
+				<title>Pumpkin Drain</title>
+				<description>Plein air painting of the Charles River in Watertown, MA.</description>
+				<url>images/adventure/pumpkin_drain.jpg</url>
+				<thumburl>images/adventure/pumpkin_drain_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="pumpkin-drain-2">
+				<title>Pumpkin Drain in the Morning Light</title>
+				<description>Plein air painting of the Charles River in Watertown, MA.</description>
+				<url>images/adventure/pumpkin_drain_2.jpg</url>
+				<thumburl>images/adventure/pumpkin_drain_2_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="sunny-path">
+				<title>Sunny Path</title>
+				<description>Plein air painting of the Charles River path in Watertown, MA.</description>
+				<url>images/adventure/sunny_path.jpg</url>
+				<thumburl>images/adventure/sunny_path_thumb.jpg</thumburl>
+			</gallery-item>
+			<gallery-item id="turtle-dock">
+				<title>Turtle Dock</title>
+				<description>Plein air painting of the Charles River path in Watertown, MA.</description>
 				<url>images/adventure/turtle_dock.jpg</url>
-				<thumburl>images/adventure/turtle_dock.jpg</thumburl>
+				<thumburl>images/adventure/turtle_dock_thumb.jpg</thumburl>
 			</gallery-item>
 		</gallery-content>
 	</gallery>
